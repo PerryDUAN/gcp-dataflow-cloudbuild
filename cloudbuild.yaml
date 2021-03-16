@@ -1,7 +1,6 @@
 steps:
   - id: "set build number"
     name: gcr.io/cloud-builders/git
-#    dir: 'gcp-dataflow-cloudbuild'
     entrypoint: 'bash'
     args:
       - '-c'
@@ -11,7 +10,6 @@ steps:
 
   - id: "build and deploy the dataflow job"
     name: maven:3.6.0-jdk-11-slim
-    dir: 'gcp-dataflow-cloudbuild'
     entrypoint: 'bash'
     args:
       - '-c'
