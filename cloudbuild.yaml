@@ -1,0 +1,34 @@
+steps:
+  - id: "set build number"
+    name: gcr.io/cloud-builders/git
+    dir: 'gcp-dataflow-cloudbuild'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        git rev-parse --short HEAD > _BUILDNUMBER
+    waitFor: ['-']
+
+  - id: "build and deploy the dataflow job"
+    name: maven:3.6.0-jdk-11-slim
+    dir: 'gcp-dataflow-cloudbuild'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        buildNumber=$(cat _BUILDNUMBER)
+        echo "Build Number is ${buildNumber}"
+        ./submit.sh DataflowPipeline \
+          --project= blz-d-gdp-telemetry \
+          --stagingLocation=gs://blz-d-gdp-telemetry/gcp-dataflow-cloudbuild-stage/ \
+          --gcpTempLocation=gs://blz-d-gdp-telemetry/gcp-dataflow-cloudbuild-temp/ \
+          --runner=DataflowRunner \
+          --autoscalingAlgorithm=THROUGHPUT_BASED \
+          --maxNumWorkers=10 \
+          --jobName=demo \
+          --buildNumber=${buildNumber} \
+          --subscription=dataflow_demo_subscription \
+          --region=us-west1
+    waitFor: ['set build number']
+  
+  
