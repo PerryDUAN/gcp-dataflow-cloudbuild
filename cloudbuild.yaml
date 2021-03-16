@@ -8,7 +8,7 @@ steps:
         git rev-parse --short HEAD > _BUILDNUMBER
     waitFor: ['-']
 
-  - id: "build and deploy the dataflow job"
+  - id: "build and deploy a dataflow job"
     name: maven:3.6.0-jdk-11-slim
     entrypoint: 'bash'
     args:
