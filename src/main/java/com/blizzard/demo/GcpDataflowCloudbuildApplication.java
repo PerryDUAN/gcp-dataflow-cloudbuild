@@ -7,6 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GcpDataflowCloudbuildApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GcpDataflowCloudbuildApplication.class, args);
+		SpringApplication.run(DataflowPipeline.class, args);
 	}
 }
