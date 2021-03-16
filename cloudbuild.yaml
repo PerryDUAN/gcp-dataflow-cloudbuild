@@ -16,7 +16,8 @@ steps:
       - |
         buildNumber=$(cat _BUILDNUMBER)
         echo "Build Number is ${buildNumber}"
-        apt-get install sudo -y
+        apt-get update
+        apt-get install sudo
         sudo bash submit.sh
         ./submit.sh DataflowPipeline \
           --project= blz-d-gdp-telemetry \
