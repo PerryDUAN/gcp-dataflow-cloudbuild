@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 function deployDataflow() {
   mainClass="$1"
   properties="${@:2}"
