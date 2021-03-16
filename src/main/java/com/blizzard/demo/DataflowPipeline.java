@@ -43,7 +43,7 @@ public class DataflowPipeline {
 		//Publishing transformed message into next topic
 		pubsubMessagePCollection.apply("Publish Pubsub Messages", PubsubIO.writeMessages().to(PUBLISH_TOPIC));
 		
-		//Execute the pipeline
+		//Execute the pipeline now
 		pipeline.run().waitUntilFinish();
 	}
 }
