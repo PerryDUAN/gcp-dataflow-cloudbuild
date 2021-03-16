@@ -17,7 +17,7 @@ steps:
       - '-c'
       - |
         buildNumber=$(cat _BUILDNUMBER)
-        echo "Build Number is ${buildNumber}"
+        echo $(ls)
         ./submit.sh DataflowPipeline \
           --project= blz-d-gdp-telemetry \
           --stagingLocation=gs://blz-d-gdp-telemetry/gcp-dataflow-cloudbuild-stage/ \
