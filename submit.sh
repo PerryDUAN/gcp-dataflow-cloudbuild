@@ -2,8 +2,8 @@
 function deployDataflow() {
   mainClass="$1"
   properties="${@:2}"
-  echo "running main class $mainClass"
-  echo "the job properties are $properties"
+  echo "running main class ${mainClass}"
+  echo "the job properties are ${properties}"
   mvn compile exec:java \
     -Dexec.mainClass="$mainClass" \
     -Dexec.args="$properties"
