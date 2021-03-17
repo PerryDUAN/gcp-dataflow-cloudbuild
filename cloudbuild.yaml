@@ -20,8 +20,8 @@ steps:
         apt-get install sudo
         sudo bash submit.sh com.blizzard.demo.DataflowPipeline \
           --project=blz-d-gdp-telemetry\
-          --stagingLocation=gs://gcp-dataflow-cloudbuild-stage \
-          --gcpTempLocation=gs://gcp-dataflow-cloudbuild-temp \
+          --stagingLocation=gs://gcp-dataflow-cloudbuild-stage/staging/ \
+          --gcpTempLocation=gs://gcp-dataflow-cloudbuild-temp/temp/ \
           --runner=DataflowRunner \
           --autoscalingAlgorithm=THROUGHPUT_BASED \
           --buildNumber=${buildNumber} \
