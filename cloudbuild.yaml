@@ -29,6 +29,6 @@ steps:
           --outputTopic=perryTest-1 \
           --serviceAccount=dataflow-sa@blz-d-gdp-telemetry.iam.gserviceaccount.com \
           --region=us-west1
-    waitFor: ['set build number']
+    waitFor: ['set build number from git push']
   
   
