@@ -8,7 +8,7 @@ import org.apache.beam.sdk.options.Default;
 
 public interface DataflowPipelineOption extends DataflowPipelineOptions {
 	@Description("Pub/Sub topic to read from. " + "Name format should look like: "
-			+ "projects/<project-id>/topics/<input-topic-name>. (project- id is default now)")
+			+ "projects/<project-id>/topics/<input-topic-name>. (project-id is default now)")
 	@Default.String("${pubsub.default.input.topic}")
 	@Required
 	String getInputTopic();

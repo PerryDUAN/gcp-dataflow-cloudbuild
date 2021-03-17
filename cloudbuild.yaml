@@ -15,19 +15,19 @@ steps:
       - '-c'
       - |
         buildNumber=$(cat _BUILDNUMBER)
+        PROJECT_NAME=$(gcloud config get-value project)
         echo "Build Number is ${buildNumber}"
         apt-get update
         apt-get install sudo
         sudo bash submit.sh com.blizzard.demo.DataflowPipeline \
-          --project= blz-d-gdp-telemetry \
-          --stagingLocation=gs://blz-d-gdp-telemetry/gcp-dataflow-cloudbuild-stage/ \
-          --gcpTempLocation=gs://blz-d-gdp-telemetry/gcp-dataflow-cloudbuild-temp/ \
+          --project= $PROJECT_NAME \
+          --stagingLocation=gs://$PROJECT_NAME/gcp-dataflow-cloudbuild-stage/ \
+          --gcpTempLocation=gs://$PROJECT_NAME/gcp-dataflow-cloudbuild-temp/ \
           --runner=DataflowRunner \
           --autoscalingAlgorithm=THROUGHPUT_BASED \
-          --maxNumWorkers=10 \
-          --jobName=demo \
           --buildNumber=${buildNumber} \
-          --subscription=dataflow_demo_subscription \
+          --inputTopic=perryTest
+          --outputTopic=perryTest-1
           --region=us-west1
     waitFor: ['set build number']
   
