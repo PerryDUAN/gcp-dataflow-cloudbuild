@@ -1,5 +1,5 @@
 steps:
-  - id: "set build number"
+  - id: "set build number from git push"
     name: gcr.io/cloud-builders/git
     entrypoint: 'bash'
     args:
