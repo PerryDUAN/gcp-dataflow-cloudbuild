@@ -15,7 +15,7 @@ steps:
       - '-c'
       - |
         buildNumber=$(cat _BUILDNUMBER)
-        PROJECT_NAME=$(gcloud config get-value project)
+        export PROJECT_NAME=$(gcloud config get-value project)
         echo "Build Number is ${buildNumber}"
         apt-get update
         apt-get install sudo
