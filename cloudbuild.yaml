@@ -25,8 +25,8 @@ steps:
           --runner=DataflowRunner \
           --autoscalingAlgorithm=THROUGHPUT_BASED \
           --buildNumber=${buildNumber} \
-          --inputTopic=perryTest
-          --outputTopic=perryTest-1
+          --inputTopic=perryTest \
+          --outputTopic=perryTest-1 \
           --region=us-west1
     waitFor: ['set build number']
   
