@@ -41,7 +41,7 @@ public class DataflowPipeline {
 		pubsubMessagePCollection.apply("Transforms/Filters/Other operations", ParDo.of(new MessagesTransform()));
 		
 		//Publishing transformed message into next topic
-		pubsubMessagePCollection.apply("Publish a Pubsub Messages", PubsubIO.writeMessages().to(PUBLISH_TOPIC));
+		pubsubMessagePCollection.apply("Publish Pubsub Messages", PubsubIO.writeMessages().to(PUBLISH_TOPIC));
 		
 		//Execute the pipeline now
 		pipeline.run().waitUntilFinish();
