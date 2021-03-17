@@ -13,9 +13,6 @@ public class DataflowPipeline {
 	private static final Logger log = LoggerFactory.getLogger(DataflowPipeline.class);
 	
 	public static void main(String[] args) {
-		// Register Options class for our pipeline with the factory
-		PipelineOptionsFactory.register(DataflowPipelineOption.class);
-		
 		//Create our custom pipeline options
 		DataflowPipelineOption options = PipelineOptionsFactory.fromArgs(args)
                 .withValidation()
