@@ -10,11 +10,12 @@ function deployDataflow() {
 }
 
 function updateOrCreate() {
+  echo "Trying to update the dataflow job"
   deployDataflow "$1" "${@:2}" "--update"
   flag=$?
 
   if [ "$flag" -ne 0 ]; then
-    echo "The job doesn't exist. Creating one..."
+    echo "The job doesn't exist. Create a new one"
     deployDataflow "$1" "${@:2}"
   fi
   

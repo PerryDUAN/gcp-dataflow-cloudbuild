@@ -1,6 +1,6 @@
 steps:
   - id: "set build number from git push"
-    name: gcr.io/cloud-builders/git
+    name: 'gcr.io/cloud-builders/git'
     entrypoint: 'bash'
     args:
       - '-c'
@@ -9,7 +9,7 @@ steps:
     waitFor: ['-']
 
   - id: "build and deploy a dataflow job"
-    name: maven:3.6.0-jdk-11-slim
+    name: 'maven:3.6.0-jdk-11-slim'
     entrypoint: 'bash'
     args:
       - '-c'
@@ -28,9 +28,10 @@ steps:
           --outputTopic=cloudbuild-dataflow-1 \
           --serviceAccount=dataflow-sa@blz-d-gdp-telemetry.iam.gserviceaccount.com \
           --jobName=cloudbuild-dataflowjob \
+          --numWorkers=2  \
+          --maxNumWorkers=20  \
           --usePublicIps=false \
           --subnetwork=https://www.googleapis.com/compute/v1/projects/blz-cf-xpn-dev-709e47/regions/us-west2/subnetworks/blz-d-gdp-telemetry-usw2-pri \
-          --network=https://www.googleapis.com/compute/v1/projects/blz-cf-xpn-dev-709e47/global/networks/dev-xpn-net \
           --region=us-west2
     waitFor: ['set build number from git push']
   
