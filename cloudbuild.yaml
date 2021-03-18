@@ -27,7 +27,7 @@ steps:
           --inputTopic=cloudbuild-dataflow \
           --outputTopic=cloudbuild-dataflow-1 \
           --serviceAccount=dataflow-sa@blz-d-gdp-telemetry.iam.gserviceaccount.com \
-          --jobName=cloudbuild-dataflowjob \
+          --jobName=cloudbuild-dataflowjob-1 \
           --numWorkers=2  \
           --maxNumWorkers=20  \
           --usePublicIps=false \
