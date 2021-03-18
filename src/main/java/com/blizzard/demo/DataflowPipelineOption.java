@@ -21,7 +21,7 @@ public interface DataflowPipelineOption extends DataflowPipelineOptions {
 	String getOutputTopic();
 	void setOutputTopic(String outputTopic);
 
-	@Description("Build Number for cloud run")
+	@Description("Build Number retrieved from git")
 	String getBuildNumber();
 	void setBuildNumber(String buildNumber);
 }
