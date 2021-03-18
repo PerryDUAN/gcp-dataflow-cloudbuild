@@ -22,4 +22,4 @@ function updateOrCreate() {
   echo "Deployment is done!"
 }
 
-updateOrCreate "$@"
+deployDataflow "$@"
