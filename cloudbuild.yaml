@@ -24,8 +24,8 @@ steps:
           --gcpTempLocation=gs://gcp-dataflow-cloudbuild-temp/temp/ \
           --runner=DataflowRunner \
           --buildNumber=${buildNumber} \
-          --inputTopic=perryTest \
-          --outputTopic=perryTest-1 \
+          --inputTopic=cloudbuild-dataflow \
+          --outputTopic=cloudbuild-dataflow-1 \
           --serviceAccount=dataflow-sa@blz-d-gdp-telemetry.iam.gserviceaccount.com \
           --jobName=cloudbuild-dataflowjob \
           --usePublicIps=false \
