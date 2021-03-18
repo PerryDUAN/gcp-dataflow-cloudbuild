@@ -29,6 +29,7 @@ steps:
           --outputTopic=perryTest-1 \
           --maxNumWorkers=5 \
           --serviceAccount=dataflow-sa@blz-d-gdp-telemetry.iam.gserviceaccount.com \
+          --jobName=cloudbuild-dataflowjob
           --region=us-west1
     waitFor: ['set build number from git push']
   
