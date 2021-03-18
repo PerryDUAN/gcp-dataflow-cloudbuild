@@ -28,6 +28,9 @@ steps:
           --outputTopic=perryTest-1 \
           --serviceAccount=dataflow-sa@blz-d-gdp-telemetry.iam.gserviceaccount.com \
           --jobName=cloudbuild-dataflowjob \
+          --usePublicIps=false \
+          --subnetwork=https://www.googleapis.com/compute/v1/projects/blz-cf-xpn-dev-709e47/regions/us-west2/subnetworks/blz-d-gdp-telemetry-usw2-pri \
+          --network=https://www.googleapis.com/compute/v1/projects/blz-cf-xpn-dev-709e47/global/networks/dev-xpn-net \
           --region=us-west1
     waitFor: ['set build number from git push']
   
