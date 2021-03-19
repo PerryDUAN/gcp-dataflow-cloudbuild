@@ -4,7 +4,6 @@ import org.apache.beam.sdk.options.StreamingOptions;
 import org.apache.beam.sdk.options.Validation.Required;
 import org.apache.beam.sdk.options.Description;
 import org.apache.beam.sdk.options.PipelineOptions;
-import org.apache.beam.sdk.options.Default;
 
 public interface DataflowPipelineOption extends PipelineOptions, StreamingOptions {
 	@Description("Pub/Sub topic to read from. " + "Name format should look like: "
@@ -25,6 +24,7 @@ public interface DataflowPipelineOption extends PipelineOptions, StreamingOption
 	void setProject(String outputTopic);
 
 	@Description("Build Number retrieved from git")
+	@Required
 	String getBuildNumber();
 	void setBuildNumber(String buildNumber);
 }
