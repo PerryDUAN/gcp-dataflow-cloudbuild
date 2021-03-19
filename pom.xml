@@ -51,7 +51,6 @@
     </build>
 
     <profiles>
-
         <profile>
             <id>direct-runner</id>
             <activation>
