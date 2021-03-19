@@ -17,11 +17,10 @@ public class DataflowPipeline {
 		DataflowPipelineOption options = PipelineOptionsFactory.fromArgs(args)
                 .withValidation()
                 .as(DataflowPipelineOption.class);
-		
-		final String GCP_PROJECT_NAME = options.getProject();
-		final String READ_TOPIC = "projects/" +GCP_PROJECT_NAME+"/topics/"
+
+		final String READ_TOPIC = "projects/blz-d-gdp-telemetry/topics/"
                 +options.getInputTopic();
-		final String PUBLISH_TOPIC = "projects/" +GCP_PROJECT_NAME+"/topics/"
+		final String PUBLISH_TOPIC = "projects/blz-d-gdp-telemetry/topics/"
                 +options.getOutputTopic();
 		
 		final String BUILD_NUMBER = options.getBuildNumber();

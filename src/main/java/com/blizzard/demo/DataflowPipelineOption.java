@@ -19,11 +19,6 @@ public interface DataflowPipelineOption extends PipelineOptions, StreamingOption
 	String getOutputTopic();
 	void setOutputTopic(String outputTopic);
 
-	@Description("GCP project name")
-	@Required
-	String getProject();
-	void setProject(String outputTopic);
-
 	@Description("Build Number retrieved from git")
 	@Default.String("blz-d-gdp-telemetry")
 	String getBuildNumber();
