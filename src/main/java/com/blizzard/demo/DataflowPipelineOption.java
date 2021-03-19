@@ -1,5 +1,6 @@
 package com.blizzard.demo;
 
+import org.apache.beam.sdk.options.Default;
 import org.apache.beam.sdk.options.StreamingOptions;
 import org.apache.beam.sdk.options.Validation.Required;
 import org.apache.beam.sdk.options.Description;
@@ -24,7 +25,7 @@ public interface DataflowPipelineOption extends PipelineOptions, StreamingOption
 	void setProject(String outputTopic);
 
 	@Description("Build Number retrieved from git")
-	@Required
+	@Default.String("blz-d-gdp-telemetry")
 	String getBuildNumber();
 	void setBuildNumber(String buildNumber);
 }
