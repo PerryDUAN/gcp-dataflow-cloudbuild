@@ -39,14 +39,14 @@ public class DataflowPipeline {
 		//Publishing transformed message into next topic
 		pubsubMessagePCollection.apply("Publish Pubsub Messages to output topic", PubsubIO.writeMessages().to(PUBLISH_TOPIC));
 
-		//Http query on other endpoints
-		try {
-			HttpQueryImp httpQueryImp = new HttpQueryImp();
-			httpQueryImp.simpleRequest();
-		} catch (Exception e) {
-			log.info("error!");
-			e.printStackTrace();
-		}
+//		//Http query on other endpoints
+//		try {
+//			HttpQueryImp httpQueryImp = new HttpQueryImp();
+//			httpQueryImp.simpleRequest();
+//		} catch (Exception e) {
+//			log.info("error!");
+//			e.printStackTrace();
+//		}
 
 
 		//Execute the pipeline now
