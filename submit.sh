@@ -6,7 +6,8 @@ function deployDataflow() {
   echo "the job properties are ${properties}"
   mvn compile exec:java \
     -Dexec.mainClass="$mainClass" \
-    -Dexec.args="$properties"
+    -Dexec.args="$properties" \
+    -Pdataflow-runner
 }
 
 function updateOrCreate() {

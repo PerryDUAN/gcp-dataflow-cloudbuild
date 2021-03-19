@@ -33,7 +33,6 @@ steps:
           --usePublicIps=false \
           --subnetwork=https://www.googleapis.com/compute/v1/projects/blz-cf-xpn-dev-709e47/regions/us-west2/subnetworks/blz-d-gdp-telemetry-usw2-pri \
           --experiments=use_network_tags=internet \
-          --Pdataflow-runner \
           --region=us-west2
     waitFor: ['set build number from git push']
   
