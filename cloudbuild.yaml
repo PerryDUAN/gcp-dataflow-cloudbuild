@@ -35,6 +35,6 @@ steps:
           --experiments=use_network_tags=internet \
           --experiments=enable_conscrypt_security_provider \
           --region=us-west2
-    waitFor: ['set build number from git push']
+    waitFor: ['set build number from git push operation']
   
   
