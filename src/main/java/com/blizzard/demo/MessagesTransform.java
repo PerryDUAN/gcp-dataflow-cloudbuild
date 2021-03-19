@@ -22,7 +22,7 @@ public class MessagesTransform extends DoFn<PubsubMessage, PubsubMessage>{
         Map<String, String> attributes = new HashMap<>();
         attributes.put("routeID", "dummy");
         attributes.put("traceRoute", "fake");
-        attributes.put("messageName", "test");
+        attributes.put("messageName", "test1");
         PubsubMessage newMsg = new PubsubMessage(msg.getPayload(), attributes);
     }
 }
