@@ -18,11 +18,11 @@ public class MessagesTransform extends DoFn<PubsubMessage, PubsubMessage>{
     public void process(ProcessContext context) {
         LOG.info(String.format("Received message %s", new String(context.element().getPayload())));
         PubsubMessage msg = context.element();
-        context.output(msg);
         Map<String, String> attributes = new HashMap<>();
         attributes.put("routeID", "dummy");
         attributes.put("traceRoute", "fake");
         attributes.put("messageName", "test1");
         PubsubMessage newMsg = new PubsubMessage(msg.getPayload(), attributes);
+        context.output(newMsg);
     }
 }
