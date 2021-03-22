@@ -34,18 +34,9 @@ public class DataflowPipeline {
 				readMessagesWithAttributes().fromTopic(READ_TOPIC));
 
 		//Do transform on pubsub messages and then publish into next topic
-		pubsubMessagePCollection.apply("Transforms/Filters/Other operations", ParDo.of(new MessagesTransform())).apply("Publish Pubsub Messages to output topic", PubsubIO.writeMessages().to(PUBLISH_TOPIC));
-
-		//Http query on other endpoints
-		try {
-			log.info("HTTP request begin!");
-			HttpQueryImp httpQueryImp = new HttpQueryImp();
-			httpQueryImp.simpleRequest();
-		} catch (Exception e) {
-			log.info("error!");
-			e.printStackTrace();
-		}
-
+		pubsubMessagePCollection.apply("Transforms/Filters/Other operations", ParDo.of(new MessagesTransform()))
+				.apply("Publish Pubsub Messages to output topic", PubsubIO.writeMessages().to(PUBLISH_TOPIC))
+				.apply("HTTP query to other endpoints", new HttpQueryImp());
 
 		//Execute the pipeline now
 		pipeline.run();

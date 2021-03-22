@@ -22,6 +22,7 @@
         <maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
         <slf4j.version>1.7.25</slf4j.version>
     </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -29,8 +30,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
             <plugin>
