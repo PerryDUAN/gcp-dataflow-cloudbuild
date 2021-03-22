@@ -35,8 +35,8 @@ public class DataflowPipeline {
 
 		//Do transform on pubsub messages and then publish into next topic
 		pubsubMessagePCollection.apply("Transforms/Filters/Other operations", ParDo.of(new MessagesTransform()))
-				.apply("Publish Pubsub Messages to output topic", PubsubIO.writeMessages().to(PUBLISH_TOPIC))
-				.apply("HTTP query to other endpoints", new HttpQueryImp());
+				.apply("Publish Pubsub Messages to output topic", PubsubIO.writeMessages().to(PUBLISH_TOPIC));
+		pubsubMessagePCollection.apply("HTTP query request", new HttpQueryImp());
 
 		//Execute the pipeline now
 		pipeline.run();
