@@ -24,7 +24,6 @@ public class MessagesTransform extends DoFn<PubsubMessage, PubsubMessage> {
         attributes.put("traceRoute", "fake");
         attributes.put("messageName", "test1");
         PubsubMessage newMsg = new PubsubMessage(msg.getPayload(), attributes);
-        LOG.info(String.format("New message attribute routeID %s", newMsg.getAttribute("routeID")));
         context.output(newMsg);
     }
 }

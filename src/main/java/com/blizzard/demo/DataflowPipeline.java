@@ -5,18 +5,9 @@ import org.apache.beam.sdk.Pipeline;
 import org.apache.beam.sdk.io.gcp.pubsub.PubsubIO;
 import org.apache.beam.sdk.io.gcp.pubsub.PubsubMessage;
 import org.apache.beam.sdk.options.PipelineOptionsFactory;
-import org.apache.beam.sdk.transforms.DoFn;
 import org.apache.beam.sdk.transforms.ParDo;
 import org.apache.beam.sdk.values.PCollection;
-import org.springframework.beans.factory.annotation.Value;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.HashMap;
-import java.util.Map;
 
 public class DataflowPipeline {
 	private static final Logger log = LoggerFactory.getLogger(DataflowPipeline.class);
@@ -47,6 +38,7 @@ public class DataflowPipeline {
 
 		//Http query on other endpoints
 		try {
+			log.info("HTTP request begin!");
 			HttpQueryImp httpQueryImp = new HttpQueryImp();
 			httpQueryImp.simpleRequest();
 		} catch (Exception e) {
