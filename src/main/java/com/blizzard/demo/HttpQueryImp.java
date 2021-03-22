@@ -6,6 +6,7 @@ import org.apache.beam.sdk.transforms.DoFn;
 import org.apache.beam.sdk.transforms.PTransform;
 import org.apache.beam.sdk.transforms.ParDo;
 import org.apache.beam.sdk.values.PCollection;
+import org.apache.beam.sdk.values.PDone;
 import org.springframework.beans.factory.annotation.Value;
 
 
@@ -15,11 +16,11 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class HttpQueryImp extends PTransform<PCollection<PubsubMessage>, PCollection<PubsubMessage>> {
+public class HttpQueryImp extends PTransform<PCollection<PubsubMessage>, PDone> {
     @Override
-    public PCollection<PubsubMessage> expand(PCollection<PubsubMessage> input) {
+    public PDone expand(PCollection<PubsubMessage> input) {
         input.apply(ParDo.of(new RequestFn()));
-        return null;
+        return PDone.in(input.getPipeline());
     }
     //sending a simple http request to endpoint url
     //previous attribute solution method:
